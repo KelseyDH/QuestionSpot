@@ -17,7 +17,8 @@ Weblog::Application.routes.draw do
   # match "/questions/:id/update" => "questions#update", via: [:put, :patch]
   # delete "/questions/:id"  => "questions#destroy"
 
-###RESOURCES DOES ALL OF THE ABOVE!!!
+######  ^^^^^^^^^^^^^^^^^^^^
+###RESOURCES BELOW DOES ALL OF THE ABOVE!!!
 
   resources :questions  do#, except: #OR# only: [:index, :new, :create]
    

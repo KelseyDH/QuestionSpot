@@ -1,1 +1,10 @@
 <h1> Listing all questions </h1>
+
+<% @questions.each do |question| %>
+
+  <h2> <%= question.title %> </h2>
+  <p><%= question.description %> </p>
+  <p> Created On:  <%= question.created_at.strftime("%Y-%b-%d") %>
+  <hr>
+
+<% end %>

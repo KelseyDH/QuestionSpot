@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    @questions = Question.all
   end
 
   def new
@@ -14,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render text: "the id is #{params[:id]}"
+    render text: "The id is #{params[:id]}"
 
   end
 

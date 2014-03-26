@@ -1,6 +1,13 @@
 <h1> Give me a question </h1>
 
 <%= form_for @question do |f| %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+
+
+
+<% end %>
+
+<%= form_for @question do |f| %>
 
     <div class="form-group">
       <%= f.label :title %>
