@@ -1,0 +1,155 @@
+exit
+q
+q.title
+q = Question.new
+q.title
+q.persisted?
+q.save
+q
+q.title = "hello world"
+q
+q.save
+q.new
+q.title = "not hello world"
+q
+q.save
+q2 = Question.new
+Question.all
+Questions.all
+Question.create(title: "watch the world burn", description: "daaaaaaamn")
+q = Question.new(title:"blaaaaaaaah", body: "hel")
+q = Question.new(title:"blaaaaaaaah", description: "hel")
+reload!
+q = Question.new
+q.save
+q.errors
+reload!
+q.errors
+q = Question.new(title: "abc")
+q2 = Question.new(title: "abc")
+q.save
+q2.save
+Reload!
+reload!
+q.error
+q.save
+q3 = Question.new
+q3 = Question.new
+reload!
+q3 = Question.new
+q3 = Question.new(description: "hello")
+q = Question.find 100
+q = Question.find 100
+q3 = Question.new(description: "hello")
+q.update_attributes(title: "some new title", description: "some new description")
+q.destroy
+Question.find_by_title "abc"
+q = Question.new(title: "abc")
+q4 = Question.new(title: "abc")
+q.save
+q4.save
+q4.update_attributes(title: "cdefg")
+q4.update_attribute(title: "cdefg")
+q4.update_attributes(title: "cdefg")
+q4.save
+reload!
+Hirb.enable
+hirb.enable
+exit
+Question.all
+Question.select(:id, :title, :description).limit(2)
+Question.select(:id, :title, :description)
+q4 = Question.new
+q4 = Question.new(title: "kelsey", description: "I am awesome.")
+q4.save
+Question.list
+Question.all
+Question.select(:id, :title, :description).limit(2).offset(2)
+Question.all
+reload!
+Question.all
+exit
+Question.all
+Question.where(title: "abc")
+Question.where.not(title: "abc")
+Question.where(["title like ?", "%fas%"])
+q8 = Question.new(title: "fasasdbfasdlfjke")
+q8.save
+q8 = Question.new(title: "fasasdbfasdlfjke", description: "I am greaaaat")
+q8.save
+q11 = Question.new(title: "fasasdbfasdlfjke", description: "fasscaaa great")
+q11.save
+q11 = Question.new(title: "sdbfasdlfjke", description: "fasscaaa great")
+q11.save
+Question.where(["title like ?", "%fas%"])
+q12 = Question.new(title: "sdbfasdlfjke", description: "fasscaaa great")
+q12.save
+q12 = Question.new(title: "dbfasdlfjke", description: "fascaaa great")
+q12.save
+Question.where(["title like ?", "%fas%"])
+Question.where(["title like ? OR description like ?", "%fas%"]).where([created_at > ?", 10.days.ago])
+Question.where(["title like ? OR description like ?", "%fas%", "%fas%"]).where(["created_at > ?", 10.days.ago])
+exit
+Question.recent(10)
+exit
+exit
+q15 = Question.new(title: "hello", description: "world")
+q15 = Question.new(title: "hello", description: "world")
+q15 = Question.new(title: "hello", description: "world")
+reload!
+q15 = Question.new(title: "hello", description: "world")
+q15 = Question.new(title: "hello", description: "world")
+exit
+q15 = Question.new(title: "helloooo", description: "worldd")
+exit
+q15 = Question.new(title: "helloooo", description: "worldd")
+q15 = Question.new(title: "helloooo", description: "worldd")
+reload!
+q15 = Question.new(title: "helloooo", description: "worldd")
+exit
+q15 = Question.new(title: "helloooo", description: "worldd")
+q15.save
+q15.update_attributes(title: "some new title", description: "some new description")
+q = Question.find 100
+Question.all
+reload!
+Question.all
+q21 = Question.new(title: "master chief", description: "alien slayer")
+q21.save
+reload!
+Question.all
+Question.all
+Question.all
+reload!
+Question.all
+reload!
+Question.all
+exit
+Question.all
+exit
+Question.all
+reload!
+Question.all
+exit
+Question.all
+reload!
+Question.all
+exit
+Question.all
+q22 = Question.new(title: "halo troll", description: "halo sucks")
+q22.save
+Question.all
+Question.recent_ten
+Question.recent(3)
+Question.scope
+Question.default_order
+Question.order
+Question.all
+doskey /history | clip
+doskey /history | clip
+exit
+hiringtest.rb
+hiringtest.rb
+hiringtest.rb
+exit
+exit

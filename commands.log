@@ -1,0 +1,20 @@
+gem install thin
+cd "Rails"
+Code
+cd Code
+cd Ruby
+cd weblog
+ls rails controller help
+rails controller help
+rails g controller help
+rails g controller questions
+rails s
+y
+rails c
+y
+rails c
+bundle install
+rails c
+doskey /history >> \commands.log
+doskey /history | clip
+doskey /history > commands.log

@@ -3,8 +3,19 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
+# DEPRECRATED Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# # Use Post Gres as the database for Active Record
+# gem 'pg'
+
+group :development do
+  gem "hirb"
+  gem "interactive_editor"
+  gem "awesome_print"
+end
+
+gem "bootstrap-sass", '~> 3.1.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

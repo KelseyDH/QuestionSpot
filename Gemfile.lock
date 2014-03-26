@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.16)
+    awesome_print (1.2.0)
+    bootstrap-sass (3.1.1.0)
+      sass (~> 3.2)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -37,8 +40,12 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    ffi (1.9.3-x86-mingw32)
     hike (1.2.3)
+    hirb (0.7.1)
     i18n (0.6.9)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -81,6 +88,8 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    spoon (0.0.4)
+      ffi
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -109,7 +118,11 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  awesome_print
+  bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
+  hirb
+  interactive_editor
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)

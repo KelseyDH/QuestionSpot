@@ -4,10 +4,13 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    #instantiate a question variable
+    @question = Question.new
   end 
 
 
   def create
+    @question.save
   end
 
   def show

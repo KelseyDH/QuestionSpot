@@ -3,6 +3,8 @@ Weblog::Application.routes.draw do
 
   get "/about_us" => "home#about"
 
+  get "/welcome" => "home#welcome"
+
   get "/faq" => "home#faq"
 
   get "/help" => "help#index"
