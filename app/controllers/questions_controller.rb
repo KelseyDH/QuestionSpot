@@ -11,7 +11,24 @@ class QuestionsController < ApplicationController
 
 
   def create
-    @question.save
+    # COMMENTED OUT
+    # question_attributes = params.require(:question).permit([:title, :description])
+    @question = Question.new(question_attributes)
+
+    ### @question = Question.new(params[:question])
+    ### forbidden in Rails 4+ for security reasons
+
+    # same as below ^^
+    # @question.title = params[:question][:title]
+    # @question.title = params[:question][:description]
+     if  @question.save
+      flash[:notice] = "Your question was created successfully!"
+      redirect_to questions_path
+    else
+      flash.now[:error] = "Please correct the form"
+      render :new
+    end
+
   end
 
   def show
@@ -38,5 +55,10 @@ class QuestionsController < ApplicationController
 
   def search
   end
+
+  private 
+  def question_attributes
+    question_attributes = params.require(:question).permit([:title, :description])
+  end 
 
 end
