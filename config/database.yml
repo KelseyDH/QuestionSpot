@@ -41,7 +41,16 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: db/development
+  database: db/test
+  username: owner
+  password: kelsey
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: db/production
   username: owner
   password: kelsey
   pool: 5
