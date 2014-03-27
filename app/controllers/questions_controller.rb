@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
 
   before_action :find_question, 
-                only: [:show, :edit, :destroy, :update]
+                only: [:show, :edit, :destroy, :update,
+                        :vote_up, :vote_down]
   
   # SAME AS ABOVE
   # before_action :find_question, except: [:index, :show, :edit, :destroy, :update]
@@ -70,6 +71,9 @@ class QuestionsController < ApplicationController
   end
 
   def vote_up
+    @question.increment!(:vote_count) ##Increases vote count of question +1
+    session[:has_voted] = true  ##Prevents multiple voting from user
+    redirect_to @question
   end
 
   def vote_down
@@ -78,11 +82,13 @@ class QuestionsController < ApplicationController
   def search
   end
 
+
+  private 
+
   def find_question
     @question = Question.find params[:id]
   end
 
-  private 
   def question_attributes
     question_attributes = params.require(:question).permit([:title, :description])
   end 

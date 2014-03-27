@@ -3,7 +3,26 @@
 
 <h1> <%= @question.title %> </h1>
 <p> <%= @question.description %> </p>
-<p> <%= @question.created_at.strftime("%Y-%b-%d") %> </p>
+<p> <%= formatted_date(question.created_at) %> </p>
+
+<!-- ^^ NOTE formatted_date helper method directly ABOVE ^^  -->
+<!-- <p> <%= @question.created_at.strftime("%Y-%b-%d") %> </p> -->
+<!-- REPLACED THIS ^^ LINE -->
+
+
+<p> <%= @question.vote_count %> </p>
+
+<br>
+
+<% if session[:has_voted] %>
+    You voted already!
+  <% else %>
+    <%= button_to "Vote Up", vote_up_question_path(@question) %>
+<% end %>
+
+
+<br>
+<%= button_to "Vote Up", vote_up_question_path(@question) %>
 
 <br>
 
@@ -11,6 +30,6 @@
 
 <br>
 
-<%= link_to "Delete", @question, method: :delete, data: {confirm: "Are you sure you want to delete this question?"} %>
+<%= button_to "Delete", @question, method: :delete, data: {confirm: "Are you sure you want to delete this question?"} %>
 <br>
 <%= link_to "All Questions", questions_path %>

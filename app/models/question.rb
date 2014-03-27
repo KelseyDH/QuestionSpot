@@ -5,6 +5,9 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :description, message: "must be present"
 
+  after_initialize :set_defaults
+
+
   default_scope {order ("title ASC") }
 
 
@@ -13,6 +16,7 @@ class Question < ActiveRecord::Base
   # ## -> sign is same as lambda
 
 # OR
+
 
   def self.recent_ten
     order("created_at DESC").limit(10)
@@ -39,5 +43,9 @@ before_save :capitalize_title
   def capitalize_title
     self.title.capitalize!
   end
+
+  def set_defaults 
+  end
+
 end
   #makes title inputs capitalized in database

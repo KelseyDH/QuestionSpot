@@ -26,6 +26,7 @@ Weblog::Application.routes.draw do
       post :vote_up
       post :vote_down
     end
+    
     ## Can use "on: :member" for each instead, like as below with collection
     post :search, on: :collection
 
