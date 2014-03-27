@@ -5,11 +5,11 @@ gem 'rails', '4.0.2'
 
 gem 'quiet_assets'
 
-# DEPRECRATED Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# # DEPRECRATED Use sqlite3 as the database for Active Record
+# gem 'sqlite3'
 
-# # Use Post Gres as the database for Active Record
-# gem 'pg'
+# Use Post Gres as the database for Active Record
+gem 'pg'
 
 group :development do
   gem "hirb"

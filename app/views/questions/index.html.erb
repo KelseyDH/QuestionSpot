@@ -1,8 +1,10 @@
 <h1> Listing all questions </h1>
 
+<%= link_to "Create new Question", new_question_path %>
+
 <% @questions.each do |question| %>
 
-  <h2> <%= question.title %> </h2>
+  <h2> <%= link_to question.title, question_path(question) %> </h2>
   <p><%= question.description %> </p>
   <p> Created On:  <%= question.created_at.strftime("%Y-%b-%d") %>
   <hr>

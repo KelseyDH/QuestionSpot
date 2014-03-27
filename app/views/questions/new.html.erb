@@ -1,50 +1,9 @@
+###NOTE element from HERE transferred to _form.html.erb
+
 <h1> Give me a question </h1>
-  <% if @question.errors.any? %>
-
-<ul>
-
-<% @questions.errors.full_messages.each do |message| %>
-  <li><%= message %> </li>
- 
-  <% end %>
-  <% end %>
-
-</ul>
-
-
-
-
-<%= form_for @question do |f| %>
-
-  <%= f.label :title, "question title" %>
-  <%= f.text_field :title %>
-  
-  <br>
-  
-  <%= f.label :description, "question description" %>
-  <%= f.text_area :description %>
-
-  <%= f.submit "Save", class: "btn btn-primary" %>
-
-<% end %>
+<%= render "form" , button_label: "Save New Question" %>
 
 
 
 
 
-
-<%= form_for @question do |f| %>
-
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description, class: "form-control" %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-
-    <%= f.submit "Create Question", class: "btn btn-primary" %>
-
-    <% end %>

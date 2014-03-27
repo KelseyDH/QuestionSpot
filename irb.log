@@ -153,3 +153,10 @@ hiringtest.rb
 hiringtest.rb
 exit
 exit
+q = Question.save
+q = Question.save(" ")
+exit
+q3 = Question.save
+q3 = Question.new
+q.errors
+exit

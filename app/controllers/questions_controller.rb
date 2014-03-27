@@ -1,5 +1,13 @@
 class QuestionsController < ApplicationController
 
+  before_action :find_question, 
+                only: [:show, :edit, :destroy, :update]
+  
+  # SAME AS ABOVE
+  # before_action :find_question, except: [:index, :show, :edit, :destroy, :update]
+
+
+
   def index
     @questions = Question.all
   end
@@ -32,19 +40,33 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render text: "The id is #{params[:id]}"
+    # @question = Question.find params[:id] -- All Below REPLACED BY before_as action
 
   end
 
 
   def edit
-    render text: "Editing #{params[:id]}"
+    # @question = Question.find params[:id]
+
+    # render text: "Editing #{params[:id]}"
   end
 
   def update
+    # @question = Question.find params[:id] -- REPLACED BY before_as action
+    if @question.update_attributes(question_attributes)
+    ##question_attributes protects from false updates
+      redirect_to @question, notice: "Question updated successfully"
+    else
+      flash.now[:error] = "Unable to update"
+      render :new
+    end
   end 
 
   def destroy
+    if  @question.destroy
+    redirect_to questions_path, notice: "Question deleted successfully"
+    else redirect_to questions_path, error: "We had trouble deleting your question"
+    end
   end
 
   def vote_up
@@ -54,6 +76,10 @@ class QuestionsController < ApplicationController
   end
 
   def search
+  end
+
+  def find_question
+    @question = Question.find params[:id]
   end
 
   private 
