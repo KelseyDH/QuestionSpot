@@ -1,0 +1,12 @@
+%h1 Listing all questions
+= link_to "Create New Question", new_question_path
+- @questions.each do |question|
+  %h2
+    = link_to question.title, question_path(question)
+  %p= question.description
+  %p
+    Created On: #{formatted_date(question.created_at)}
+  /Note that *Formatted_date* REPLACED:
+  / = question.created_at.strftime("%Y-%b-%d")
+  
+  %hr/

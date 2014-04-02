@@ -18,6 +18,30 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end 
 
+  def show
+    @answer = Answer.new
+  end
+
+
+
+  def update
+    # @question = Question.find params[:id] -- REPLACED BY before_as action
+    if @question.update_attributes(question_attributes)
+    ##question_attributes protects from false updates
+      redirect_to @question, notice: "Question updated successfully"
+    else
+      flash.now[:error] = "Unable to update"
+      render :new
+    end
+  end 
+
+  def destroy
+    if  @question.destroy
+    redirect_to questions_path, notice: "Question deleted successfully"
+    else redirect_to questions_path, error: "We had trouble deleting your question"
+    end
+  end
+
 
   def create
     # COMMENTED OUT
@@ -40,35 +64,12 @@ class QuestionsController < ApplicationController
 
   end
 
-  def show
-    # @question = Question.find params[:id] -- All Below REPLACED BY before_as action
-
-  end
-
-
   def edit
     # @question = Question.find params[:id]
 
     # render text: "Editing #{params[:id]}"
   end
 
-  def update
-    # @question = Question.find params[:id] -- REPLACED BY before_as action
-    if @question.update_attributes(question_attributes)
-    ##question_attributes protects from false updates
-      redirect_to @question, notice: "Question updated successfully"
-    else
-      flash.now[:error] = "Unable to update"
-      render :new
-    end
-  end 
-
-  def destroy
-    if  @question.destroy
-    redirect_to questions_path, notice: "Question deleted successfully"
-    else redirect_to questions_path, error: "We had trouble deleting your question"
-    end
-  end
 
   def vote_up
     @question.increment!(:vote_count) ##Increases vote count of question +1

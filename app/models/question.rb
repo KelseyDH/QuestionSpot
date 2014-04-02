@@ -10,6 +10,9 @@ class Question < ActiveRecord::Base
 
   default_scope {order ("title ASC") }
 
+  has_many :answers, dependent: :destroy
+  #makes Answer DB schema dependent on Question schema
+
 
 ###########SAME THING BELOW: scope and self.recent_ten #############
   # scope :recent_ten, -> { order("created_at DESC").limit(10) }
@@ -29,12 +32,17 @@ class Question < ActiveRecord::Base
 
   scope :recent, lambda {|x| order("created_at DESC").limit(x) }
 
+
+
 # OR
 
   # def self.recent(x)
   #     order("created_at DESC").limit(x)
   # end
 ###########################
+
+scope :after, lambda {|date| where(["created_at DESC"]).limit(x) }
+##DEBUG NOTE: Above added as Copy from Tam's app
 
 before_save :capitalize_title
 

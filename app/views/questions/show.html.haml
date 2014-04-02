@@ -1,0 +1,34 @@
+%h1= @question.title
+%p= @question.description
+%p= formatted_date(@question.created_at)
+/ ^^ NOTE formatted_date helper method directly ABOVE ^^
+/ %p= @question.created_at.strftime("%Y-%b-%d")
+/ REPLACED THIS ^^ LINE
+
+%p
+  = @question.vote_count
+%br/
+- if session[:has_voted]
+  You voted already!
+- else
+  = button_to "Vote Up", vote_up_question_path(@question)
+%br/
+= button_to "Vote Up", vote_up_question_path(@question)
+%br/
+= link_to "Edit", edit_question_path(@question)
+%br/
+= button_to "Delete", @question, method: :delete, data: {confirm: "Are you sure you want to delete this question?"}
+%br/
+= link_to "All Questions", questions_path
+
+
+%h2 Add An Answer
+- if @answer.errors.any?
+  %ul
+    - @answer.errors.full_messages.each do |message|
+      %li= message
+
+/= form_for [@question, @answer] do |f|
+= form_for @answer, url: question_answers_path(@question) do |f|
+  = f.text_area :body
+  = f.submit "Submit an answer", class: "btn btn-primary"

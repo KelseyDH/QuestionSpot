@@ -21,16 +21,22 @@ Weblog::Application.routes.draw do
 ###RESOURCES BELOW DOES ALL OF THE ABOVE!!!
 
   resources :questions  do#, except: #OR# only: [:index, :new, :create]
-   
-   member do
-      post :vote_up
-      post :vote_down
-    end
     
-    ## Can use "on: :member" for each instead, like as below with collection
-    post :search, on: :collection
+    resources :answers  
+    #IMPORTANT: resources :answers is NESTED INSIDE resources:questions, 
+    #nesting changes :answers path route
+    #TO NEW ROUTE OF: "/questions/:questionid/answers" => "answers#create"
+    #RATHER THAN: "/answers" => "answers#create"
+     
+     member do
+        post :vote_up
+        post :vote_down
+      end
+      
+      ## Can use "on: :member" for each instead, like as below with collection
+      post :search, on: :collection
 
-  end
+    end
 
   root "questions#index"
 

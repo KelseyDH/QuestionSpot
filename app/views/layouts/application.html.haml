@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Weblog
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    = link_to "Home", welcome_path
+    = link_to "Questions Index", root_path
+    = link_to "About Us", about_us_path, class: "btn-primary", id: "abc", style: "float: left;"
+    = flash[:notice] || flash[:error]
+    %h3= flash[:notice] || flash[:error]
+    = yield

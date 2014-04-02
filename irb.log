@@ -160,3 +160,37 @@ q3 = Question.save
 q3 = Question.new
 q.errors
 exit
+Post.new("hello","hii!")
+steve = Post.new("hello","hii!")
+@post = Post.new("hello","hii!")
+exit
+answer
+Answer
+exit
+question.answers
+answer = question.answers.new
+question.answers << answer1
+exit
+exit
+question = Question.last
+question.answers
+answer1 = Answer.new
+answer1.body
+answer1.body = "hello"
+question.answers << answer1
+question.answers.where(body: "hello")
+q26 = Answer.new
+q24.body("hello")
+q24.body = "hello"
+answer2 = Answer.new
+answer2.body = "this is the text body"
+question.answers >> answer2
+answer2.body
+answer2.body = "this is the text body"
+question.answers << answer2
+q55 = Answer.new
+q55.body = "body test is here"
+question.answers << q55
+exit
+Question.first
+exit
