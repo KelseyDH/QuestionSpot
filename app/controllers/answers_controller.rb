@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
-##Generated separately after Answer Model was generated
+##Class Answers Controller was generated separately after Answer Model was generated
+
 before_action :find_question
 
 def create
@@ -27,13 +28,14 @@ end
 
 private
 
-##private method to use for Answer.new
+  ##private method to use for Answer.new
 def answer_attributes
-  params.require(:answer).permit([:body])
-end
-
-def find_question
-  @question = Question.find params[:question_id]
-end
+    params.require(:answer).permit([:body])
+  end
+ 
+# No longer needed in Answers Controller since Questions Controller.find_question added params[:question_id]
+# def find_question
+#     @question = Question.find params[:question_id]
+#   end
 
 end

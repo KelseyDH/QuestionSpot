@@ -9,6 +9,7 @@ gem 'haml'
 
 gem 'html2haml'
 
+
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
@@ -19,6 +20,9 @@ group :development do
   gem "hirb"
   gem "interactive_editor"
   gem "awesome_print"
+  # gem 'better_errors' #debugging gem
+  # gem 'binding_of_caller' #debugging gem
+
 end
 
 gem "bootstrap-sass", '~> 3.1.1'

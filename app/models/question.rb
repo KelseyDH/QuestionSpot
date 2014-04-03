@@ -11,6 +11,7 @@ class Question < ActiveRecord::Base
   default_scope {order ("title ASC") }
 
   has_many :answers, dependent: :destroy
+  has_many :comments, through: :answers
   #makes Answer DB schema dependent on Question schema
 
 

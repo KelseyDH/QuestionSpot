@@ -21,6 +21,8 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @answers = @question.answers.ordered_by_creation
+    #Note that @answers is being used in show.html.haml to render data, which is then used to identify
+    #partial page _answer.html.haml
   end
 
 
@@ -88,7 +90,9 @@ class QuestionsController < ApplicationController
   private 
 
   def find_question
-    @question = Question.find params[:id]
+    @question = Question.find(params[:question_id] || params[:id])
+    #@question = Question.find params[:id]  Replaced with above^^
+
   end
 
   def question_attributes
