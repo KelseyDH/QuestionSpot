@@ -1,9 +1,9 @@
 %h1= @question.title
 %p= @question.description
 %p= formatted_date(@question.created_at)
-/ ^^ NOTE formatted_date helper method directly ABOVE ^^
+/ ^^ NOTE formatted_date is an applicatiion helper method
 / %p= @question.created_at.strftime("%Y-%b-%d")
-/ REPLACED THIS ^^ LINE
+/ WHICH REPLACED THIS ^^ LINE
 
 %p
   = @question.vote_count
@@ -22,6 +22,7 @@
 = link_to "All Questions", questions_path
 
 
+
 %h2 Add An Answer
 - if @answer.errors.any?
   %ul
@@ -32,3 +33,17 @@
 = form_for @answer, url: question_answers_path(@question) do |f|
   = f.text_area :body
   = f.submit "Submit an answer", class: "btn btn-primary"
+
+%hr
+/- @question.answers.each do |answer|
+- @answers.each do |answer|
+
+  = render "/answers/answer", answer: answer
+
+  / ABOVE REPLACES NEED TO POST THE BELOW HERE.  The below code is now found at _answer.html.haml
+  / .well
+  /   .col-sm-8.col-md.8.col-xs-8
+  /     %p= answer.body
+  /     %p Created on #{formatted_date(answer.created_at)}
+  /   .col-sm-8.col-md.8.col-xs-8
+  /     .pull-right= button_to "Delete", question_answer_path(@question, answer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this answer?"}

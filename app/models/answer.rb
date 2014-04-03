@@ -4,4 +4,8 @@ class Answer < ActiveRecord::Base
 ## ~> rails g model answer body:text question:references
 validates_presence_of :body, message: "answer must contain text"
 
+scope :ordered_by_creation, -> {order("created_at DESC")}
+##Creates method :ordered_by_creation
+#this method orders answers by the date created_at; DESC means Descending order
+
 end
