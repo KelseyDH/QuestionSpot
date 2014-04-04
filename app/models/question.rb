@@ -10,7 +10,16 @@ class Question < ActiveRecord::Base
 
   default_scope {order ("title ASC") }
 
+  has_one :question_detail
+  # Methods for manipulating question_detail DB:
+  # ~> question.build_question_detail(notes: "hello")
+  # ~> question.create_question_detail(notes: "hello")
+
   has_many :answers, dependent: :destroy
+  # question.answers(notes: "hello")
+
+
+
   has_many :comments, through: :answers
   #makes Answer DB schema dependent on Question schema
 

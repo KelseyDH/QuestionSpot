@@ -29,7 +29,7 @@
     - @answer.errors.full_messages.each do |message|
       %li= message
 
-/= form_for [@question, @answer] do |f|
+/=# form_for [@question, @answer] do |f|
 = form_for @answer, url: question_answers_path(@question) do |f|
   = f.text_area :body
   = f.submit "Submit an answer", class: "btn btn-primary"
@@ -38,17 +38,17 @@
 
 = render @answers
 
-/ ^^If rendering PARTIAL, above is even MORE Succinct than:
-/ - @answers.each do |answer|
-/   = render "/answers/answer", answer: answer
+-# ^^If rendering PARTIAL, above is even MORE Succinct than:
+-# @answers.each do |answer|
+-#  = render "/answers/answer", answer: answer
 
 
-    / Which REPLACED NEED TO POST THE CODE BELOW HERE.  The below code is now found at _answer.html.haml
-    /- @question.answers.each do |answer|
+/ -#  /Which REPLACED NEED TO POST THE CODE BELOW HERE.  The below code is now found at _answer.html.haml
+/     -# @question.answers.each do |answer|
 
-      / .well
-      /   .col-sm-8.col-md.8.col-xs-8
-      /     %p= answer.body
-      /     %p Created on #{formatted_date(answer.created_at)}
-      /   .col-sm-8.col-md.8.col-xs-8
-      /     .pull-right= button_to "Delete", question_answer_path(@question, answer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this answer?"}
+-#  / .well
+-#  /   .col-sm-8.col-md.8.col-xs-8
+-#  /     %p= answer.body
+-#  /     %p Created on #{formatted_date(answer.created_at)}
+-#  /   .col-sm-8.col-md.8.col-xs-8
+-#  /     .pull-right= button_to "Delete", question_answer_path(@question, answer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this answer?"}

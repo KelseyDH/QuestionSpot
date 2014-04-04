@@ -194,3 +194,6 @@ question.answers << q55
 exit
 Question.first
 exit
+@question = Question.last
+@question.answers.ordered_by_creation
+exit
