@@ -8,7 +8,14 @@
   %br/
   = f.label :description, "question description"
   = f.text_area :description
+
+
   %br/
+  %ul.listing
+    - 10.times do |x|
+      %li= link_to "Create New Question", new_question_path
+      %h2= "x"
+
   = f.submit "Save", class: "btn btn-primary"
   
   / # SAME AS ABOVE f.submit (@question.persisted? ? "Update" : "Save"), class: "btn btn-primary"
