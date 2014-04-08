@@ -13,3 +13,101 @@
   
   %hr/
 
+/# Below code is jquery to increase %h1 font-size by 1px
+/# parseInt() converts "20 px" into integer "20"
+/# 
+:javascript
+  $("h1").each(function(){
+    var fontSize = parseInt($(this).css("font-size"));
+    fontSize++;
+    $(this).css("font-size", fontSize + "px");
+  });
+
+
+%h3.title "Listing all numbers:"
+
+/ %ul
+/ :javascript
+/   var number = 10
+/   for (i=1, len=number; i<=len; i++) {
+/     $ul = $("<ul>")
+/     .append(%li);
+/   };
+
+
+//Below jQuery code adds UL/LI tags based on a number input
+:javascript
+
+  function generateUl(number) {
+    
+    var $ul = $("<ul></ul>");
+    for(var i = 0; i < number; i++) {
+      var $li = $("<li></li>", {text: "Element" + i});
+      $ul.append($li);
+    }
+    $("body").append($ul);
+  }
+  generateUl(7);
+
+
+//Below code prints all questions containing "abc"
+:javascript
+
+  $("h2:contains('Abc')").each(function(){
+
+    // console.log($(this).text().length));
+    x = $(this).text().length;
+    $("body").append(x)
+
+  });
+
+//Writing a code that capitalizes all the text inside "h2" elements containing the letter "a"
+
+:javascript
+
+  $("h2:contains('A')").each(function(){
+
+    console.log($(this).text().toUpperCase());
+
+  });
+
+//Writing a code that Upper Cases all the text inside "<a>" elements inside "h2" elements 
+:javascript
+  $("h2 a").each(function(){
+
+    $(this).text( $(this).text().toUpperCase() );
+  
+  });
+
+//Writing a code that capitalized all the text inside "a" elements inside "h2" elements
+
+/ $("h2 a").each(function(){
+/   var capitalizedText = $(this).text().charAt(0).toUpperCase() + $(this).text().slice(1);
+/   $(this).text(capitalizedText);
+
+/ });
+
+//Writing a code that removes from the DOM a random H2 element
+
+:javascript
+  var randomnumber=Math.floor(Math.random() + $("h2").length())
+
+  var $h2 = $("h2");
+    $("h2").each(function(){
+    Math.random()
+
+    $h2.remove;
+
+  });
+
+
+:javascript
+
+  function removeH2() {
+
+    var index = Math.floor(Math.random() + $("h2").length);
+    if($("h2").length > 0) {
+      $("h2")[index].remove();
+    }
+
+  };
