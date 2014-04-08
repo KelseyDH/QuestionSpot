@@ -1,5 +1,6 @@
 Weblog::Application.routes.draw do
 
+ get "/jspractices" => "jspractice#index"
 
   get "/about_us" => "home#about"
 

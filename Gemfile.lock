@@ -133,7 +133,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bootstrap-sass (~> 3.1.1)
-  coffee-rails (~> 4.0.0)
   haml
   hirb
   html2haml

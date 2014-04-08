@@ -9,6 +9,7 @@
   .container
     %nav.navbar.navbar-default{role: "navigation"}
   = link_to "Home", welcome_path
+  = link_to "JSPractice", jspractices_path
   = link_to "Questions Index", root_path
   = link_to "About Us", about_us_path, class: "btn-primary", id: "abc", style: "float: left;"
   - if flash[:notice] 
