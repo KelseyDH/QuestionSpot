@@ -197,3 +197,31 @@ exit
 @question = Question.last
 @question.answers.ordered_by_creation
 exit
+Question.update_all(user_id: 1)
+Question.update_all(user_id: 1)
+Quest
+Question.all
+rails g migration add_user_references_to_questions user:references
+rails g migration add_user_references_to_question user:references
+exit
+["Art", "Science", "Technology", "Sports", "Travel", "Humor"].each { |x| Category.create(title: x)}
+["Art", "Science", "Technology", "Sports", "Travel", "Humor"].each { |x| Category.create(name: x)}
+Category.create(name: "Politics")
+c1 = Category.first
+c2 = Category.find 4
+q = Question.first
+q.categories << c1
+q.categories << c1
+q.categories << c1
+q = Question.all.sample
+c1 = Category.find 1
+c2 = Category find 2
+c2 = Category.find 2
+q.categories << c2
+q.categories
+Categorization.all
+category = Category.find 1
+category.questions
+question.categories
+Question.update_all(user_id: 1)
+exit

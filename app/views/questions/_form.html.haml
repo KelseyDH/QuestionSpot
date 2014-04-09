@@ -8,14 +8,19 @@
   %br/
   = f.label :description, "question description"
   = f.text_area :description
+  %br/
+  = f.collection_check_boxes :category_ids, Category.order("name"), :id, :name
+  %br/
+  = f.submit button_label, class: "btn btn-default"
 
 
   %br/
-  %ul.listing
-    - 10.times do |x|
-      %li= link_to "Create New Question", new_question_path
-      %h2= "x"
+/# %ul.listing
+/#   - 10.times do |x|
+/#    %li= link_to "Create New Question", new_question_path
+/#    %h2= "x"
 
-  = f.submit "Save", class: "btn btn-primary"
+/ 
+/ = f.submit "Save", class: "btn btn-primary"
   
-  / # SAME AS ABOVE f.submit (@question.persisted? ? "Update" : "Save"), class: "btn btn-primary"
+/ # SAME AS ABOVE f.submit (@question.persisted? ? "Update" : "Save"), class: "btn btn-primary"

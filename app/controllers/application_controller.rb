@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+##similar to an array that we used when making permanent perameters
   def configure_devise_params
     devise_parameter_sanitizer.for(:sign_up) <<
                                               [:first_name, :last_name]

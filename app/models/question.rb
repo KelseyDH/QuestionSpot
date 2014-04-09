@@ -1,6 +1,5 @@
 class Question < ActiveRecord::Base
 
-
   validates :title, presence: true, uniqueness: true
 
   validates_presence_of :description, message: "must be present"
@@ -9,6 +8,12 @@ class Question < ActiveRecord::Base
 
 
   default_scope {order ("title ASC") }
+
+  #questions belong to an individual user
+  belongs_to :user
+
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
 
   has_one :question_detail
   # Methods for manipulating question_detail DB:

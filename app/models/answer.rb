@@ -4,6 +4,7 @@ class Answer < ActiveRecord::Base
 ## ~> rails g model answer body:text question:references
 
 has_many :comments, dependent: :destroy
+belongs_to :user
 #Links Comments model DB to Answer
 
 validates_presence_of :body, message: "answer must contain text"

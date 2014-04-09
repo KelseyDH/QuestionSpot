@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   end 
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id] || params[:id])
     @answer = Answer.new
     @answers = @question.answers.ordered_by_creation
     #Note that @answers is being used in show.html.haml to render data, which is then used to identify
@@ -66,8 +66,8 @@ class QuestionsController < ApplicationController
 
     ####for a user creating a question
     @question.user = current_user
-    #Above replaces:
-    #@question.user - current_user.questions.new(question_attributes)
+    #Above replaces (do not use):
+    #@question.user = current_user.questions.new(question_attributes)
     ####
      if  @question.save
       flash[:notice] = "Your question was created successfully!"
@@ -102,7 +102,8 @@ class QuestionsController < ApplicationController
   private 
 
   def find_question
-    @question = current_user.questions.find(params[:question_id] || params[:id])
+    # @question = current_user.questions.find(params[:question_id] || params[:id])
+    @question = current_user.questions.find_by_id(params[:id])
     redirect_to root_path, alert: "Access Denied" unless @question
 
     #This replaced by ^^ @question = Question.find(params[:question_id] || params[:id])
