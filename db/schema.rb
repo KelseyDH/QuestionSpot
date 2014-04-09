@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 20140409211651) do
 
   create_table "categorizations", force: true do |t|
     t.integer  "category_id"
+    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
+  add_index "categorizations", ["question_id"], name: "index_categorizations_on_question_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "body"

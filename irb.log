@@ -225,3 +225,31 @@ category.questions
 question.categories
 Question.update_all(user_id: 1)
 exit
+Question.all
+Question.all.destroy
+Question.destroy.all
+User.all
+Question.update_all(user_id: 3)
+Category.all.map(&title)
+Category.all.map(&:title)
+Category.all
+Category.all.map(&:name)
+q = Question.first
+c1 = Category.first
+c1 = Category.find 2
+q.categories << c1
+q.categories
+Categorization.all
+exit
+exit
+q = Question.first
+c1 = Category.first
+q.categories << c1
+q2 = Question.find 2
+c1 = Category.first
+c1 = Category.find 2
+q.categories << c1
+q.categories << c2
+q.categories
+Categorization.all
+exit
