@@ -1,5 +1,6 @@
 Weblog::Application.routes.draw do
 
+  devise_for :users
  get "/jspractices" => "jspractice#index"
 
   get "/about_us" => "home#about"

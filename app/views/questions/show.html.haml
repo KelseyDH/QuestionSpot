@@ -36,6 +36,16 @@
 
 %hr
 
+= @question.answers.each do |answer|
+  .well
+  .row
+    .col-smm-8.col-md-8.col-xs-8
+      %p= answer.body
+      %p Created on: #{formatted_date(answer_created_at)}
+    .col-smm-8.col-md-8.col-xs-8
+      .pull-right= button_to "Delete", question_answers_path(@question,@answer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure you want to delete the answer?"}
+%hr
+
 = render @answers
 
 -# ^^If rendering PARTIAL, above is even MORE Succinct than:

@@ -3,8 +3,8 @@
 %br
 %br
 = form_tag "/", id: "personal-info" do
-  = text_field_tag "First Name", "", placeholder: "First Name" 
-  = text_field_tag "Last Name", "", placeholder: "Last Name" 
+  = text_field_tag "firstName", "", placeholder: "First Name" 
+  = text_field_tag "lastName", "", placeholder: "Last Name" 
   = text_field_tag "Email", "", placeholder: "Email" 
   = submit_tag 'Submit'
 
@@ -17,7 +17,7 @@
 
 %br
 %br
-.button-container
+.well
   = link_to "Click Me", "javascript:void(0);", class: "btn btn-info .my-button", id: "1"
   = link_to "Click Me", "javascript:void(0);", class: "btn btn-info .my-button", id: "2"
   = link_to "Click Me", "javascript:void(0);", class: "btn btn-info .my-button", id: "3"

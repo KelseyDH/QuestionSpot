@@ -3,19 +3,19 @@
 
 
 
-//$(this) references the id of the button
-var showAlert = function(){
-  alert($(this).attr("id"));
-};
+// //$(this) references the id of the button
+// var showAlert = function(){
+//   alert($(this).attr("id"));
+// };
 
 
 
 
 
-$(document).ready(function() {
+// $(document).ready(function() {
   
-    $(".my-button").click(showAlert);
-});
+//     $(".my-button").click(showAlert);
+// });
 
 
 // .button-container is a class, that contains the event to that class
@@ -25,9 +25,9 @@ $(document).ready(function() {
 
 
 
+//remove button
 
-
-$(document).on("click", ".btn-remove-block", function() {
+$(document).on("click", ".my-button", function() {
     $(this).parents(".well").fadeOut();
 });
 
@@ -55,7 +55,7 @@ $(document).on("click", "ul.tasks li", function(){
   $(this).fadeOut();
 });
 
-//////////////////
+////////////////////////
 
 //////Type in a box and press enter to print a mirror 
 //////in jquery of the text entered
@@ -81,69 +81,25 @@ $(document).ready(function() {
   });
 });
 
+/////////////////////////
 
 
 
-
-
+//Login jQuery
+//Shows text to the user in real time of what they wrote
+$(document).on("submit", "#personal-info", function(event){
+  var result;
+  result =  "First Name: " + $("#firstName").val() + " " + 
+            "Last name Name: " + $("#lastName").val() + " " +
+            "Email: " + $("#Email").val()
+  $("#display").text(result);
+  return false;
+});
 
 
 
 
 // $(document).on("keyup", "#mirror", function(event){
-
-
-
-
-//   var $h3, keycode;
-//   keycode = event.keycode ? event.keycode : event.which;
-//   console.log(keycode);
-//   if (keycode === 13) {
-    
-//     $h3 = $("<h3>", {
-//       text: $(this).val(),
-//       "class": "mirror"
-//     });
-
-//     var originalText = $(this).val().split('').reverse().join('');
-
-
-//     $(".mirror").append($originalText);
-//     // $(this).val("");
-//   }
-// });
-
-
-
-
-
-
-
-////code dump:
-
-// $(document).on("keyup", "#mirror", function(event){
-
-//   var $h3, keycode;
-//   keycode = event.keycode ? event.keycode : event.which;
-//   console.log(keycode);
-//   if (keycode === 13) {
-//     $h3 = $("<h3>", {
-//       text: $(this).val(),
-//       "class": "mirror"
-//       });
-//     $(".mirror").append($h3);
-//     $(this).val("");
-//   }
-// });
-
-
-
-
-// function reverse(s) {
-//   return s.split('').reverse().join('');
-// }
-
-
 
 
 ///////////////////////Understanding propagation in DOM:

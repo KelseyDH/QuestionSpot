@@ -8,13 +8,19 @@
   %body
   .container
     %nav.navbar.navbar-default{role: "navigation"}
-  = link_to "Home", welcome_path
-  = link_to "JSPractice", jspractices_path
-  = link_to "Questions Index", root_path
-  = link_to "About Us", about_us_path, class: "btn-primary", id: "abc", style: "float: left;"
-  - if flash[:notice] 
-    .alert.alert-success= flash[:notice]
-  - else flash[:error]
-    .alert.alert-danger= flash[:error]
-  %h3= flash[:notice] || flash[:error]
+      = link_to "Home", welcome_path
+      = link_to "JSPractice", jspractices_path
+      = link_to "Questions Index", root_path
+      = link_to "About Us", about_us_path, class: "btn-primary", id: "about", style: "float: left;"
+      .pull-right
+        - if user_signed_in?
+          = link_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+        - else
+          = link_to "sign in", new_user_session_path, class: "btn btn-primary"
+
+    - if flash[:notice] 
+      .alert.alert-success= flash[:notice]
+    - else flash[:error]
+      .alert.alert-danger= flash[:error]
+    %h3= flash[:notice] || flash[:error]
   = yield

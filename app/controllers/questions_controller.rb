@@ -1,8 +1,13 @@
 class QuestionsController < ApplicationController
 
+ #added when users added to confirm session first
+ before_action :authenticate_user!, except: [:index, :show]
+
   before_action :find_question, 
-                only: [:show, :edit, :destroy, :update,
-                        :vote_up, :vote_down]
+                only: [:edit, :destroy, :update,
+                        :vote_up, :vote_down]  
+                        #note that :show was removed from before_action due to change in find_question
+
   
   # SAME AS ABOVE
   # before_action :find_question, except: [:index, :show, :edit, :destroy, :update]
@@ -19,6 +24,7 @@ class QuestionsController < ApplicationController
   end 
 
   def show
+    @question = Question.find(params[:id])
     @answer = Answer.new
     @answers = @question.answers.ordered_by_creation
     #Note that @answers is being used in show.html.haml to render data, which is then used to identify
@@ -52,11 +58,17 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_attributes)
 
     ### @question = Question.new(params[:question])
-    ### forbidden in Rails 4+ for security reasons
+    ### ^^forbidden in Rails 4+ for security reasons
 
-    # same as below ^^
-    # @question.title = params[:question][:title]
-    # @question.title = params[:question][:description]
+      # same as below ^^
+      # @question.title = params[:question][:title]
+      # @question.title = params[:question][:description]
+
+    ####for a user creating a question
+    @question.user = current_user
+    #Above replaces:
+    #@question.user - current_user.questions.new(question_attributes)
+    ####
      if  @question.save
       flash[:notice] = "Your question was created successfully!"
       redirect_to questions_path
@@ -90,11 +102,15 @@ class QuestionsController < ApplicationController
   private 
 
   def find_question
-    @question = Question.find(params[:question_id] || params[:id])
-    #@question = Question.find params[:id]  Replaced with above^^
+    @question = current_user.questions.find(params[:question_id] || params[:id])
+    redirect_to root_path, alert: "Access Denied" unless @question
+
+    #This replaced by ^^ @question = Question.find(params[:question_id] || params[:id])
+    ####This replaced by ^^ above:@question = Question.find params[:id]  Replaced with above^^
 
   end
 
+  ##Method to define what's needed to create a new question
   def question_attributes
     question_attributes = params.require(:question).permit([:title, :description])
   end 
