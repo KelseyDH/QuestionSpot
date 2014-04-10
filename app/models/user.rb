@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
 
 #user ERD interactions with models
 has_many :questions
+
+# dependency to add when likes are added.
+# has_many :likes
+# has_many :liked_questions, through: :likes, source: :questions
+
 has_many :answers
 
   def full_name

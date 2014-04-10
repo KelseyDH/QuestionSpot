@@ -9,12 +9,17 @@
   = f.label :description, "question description"
   = f.text_area :description
   %br/
-  = f.collection_check_boxes :category_ids, Category.order("name"), :id, :name
-  %br/
+  =# f.collection_check_boxes :category_ids, Category.order("name"), :id, :name
+
+  = hidden_field_tag "question[category_ids][]", nil
+  - Category.order("name").each do |cat|
+    = check_box_tag "question[category_ids][]", cat.id, @question.category_ids.include?(cat.id), id: dom_id(cat)
+    = label_tag dom_id(cat), cat.name
+    / # NOTE:  putting [category_ids][] with another "[]" enables data to be sent back as an array of multiple items
+    / # NOTE 2:  dom_id(cat) is a helper method for retrieving model_id, e.g. user_13
+    %br/
   = f.submit button_label, class: "btn btn-default"
 
-
-  %br/
 /# %ul.listing
 /#   - 10.times do |x|
 /#    %li= link_to "Create New Question", new_question_path
