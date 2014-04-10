@@ -26,9 +26,12 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:question_id] || params[:id])
     @answer = Answer.new
+    #NOTE HIGH number of instance variables above(convention is 2 per method)
+    #this means we should refactor soon
     @answers = @question.answers.ordered_by_creation
-    #Note that @answers is being used in show.html.haml to render data, which is then used to identify
+    #Note that @answers is being used by show.html.haml to render data, which is then used to identify
     #partial page _answer.html.haml
+    @vote = current_user.vote_for(@question) || Vote.new
   end
 
 
@@ -86,14 +89,14 @@ class QuestionsController < ApplicationController
   end
 
 
-  def vote_up
-    @question.increment!(:vote_count) ##Increases vote count of question +1
-    session[:has_voted] = true  ##Prevents multiple voting from user
-    redirect_to @question
-  end
+  # def vote_up
+  #   @question.increment!(:vote_count) ##Increases vote count of question +1
+  #   session[:has_voted] = true  ##Prevents multiple voting from user
+  #   redirect_to @question
+  # end
 
-  def vote_down
-  end
+  # def vote_down
+  # end
 
   def search
   end
@@ -113,7 +116,7 @@ class QuestionsController < ApplicationController
 
   ##Method to define what's needed to create a new question
   def question_attributes
-    question_attributes = params.require(:question).permit([:title, :description])
+    question_attributes = params.require(:question).permit([:title, :description, {:category_ids => []}])
   end 
 
 end

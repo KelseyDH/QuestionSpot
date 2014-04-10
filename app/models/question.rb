@@ -12,6 +12,9 @@ class Question < ActiveRecord::Base
   #questions belong to an individual user
   belongs_to :user
 
+  has_many :votes, dependent: :destroy
+  has_many :voted_users, through: :votes, source: :user
+
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
 

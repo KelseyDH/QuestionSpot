@@ -1,5 +1,6 @@
 Weblog::Application.routes.draw do
 
+
   devise_for :users
  get "/jspractices" => "jspractice#index"
 
@@ -23,7 +24,7 @@ Weblog::Application.routes.draw do
 ###RESOURCES BELOW DOES ALL OF THE ABOVE!!!
 
   resources :questions  do#, except: #OR# only: [:index, :new, :create]
-    
+    resources :votes, only: [:create, :update, :destroy]
     resources :answers  
     #IMPORTANT: resources :answers is NESTED INSIDE resources:questions, 
     #nesting changes :answers path route

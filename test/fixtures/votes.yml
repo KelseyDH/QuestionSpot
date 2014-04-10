@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_up: false
+  question_id: 
+  user_id: 
+
+two:
+  is_up: false
+  question_id: 
+  user_id: 
