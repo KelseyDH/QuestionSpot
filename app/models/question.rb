@@ -65,13 +65,13 @@ scope :after, lambda {|date| where(["created_at DESC"]).limit(x) }
 before_save :capitalize_title
 
   private
-
+  
+  #makes title inputs capitalized in database
   def capitalize_title
     self.title.capitalize!
   end
-
+  
   def set_defaults 
   end
 
 end
-  #makes title inputs capitalized in database

@@ -57,6 +57,7 @@
 /=# form_for [@question, @answer] do |f|
 = form_for @answer, url: question_answers_path(@question) do |f|
   = f.text_area :body
+  %br
   = f.submit "Submit an answer", class: "btn btn-primary"
 %hr
 

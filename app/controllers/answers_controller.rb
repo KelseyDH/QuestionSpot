@@ -28,7 +28,7 @@ def destroy
   if @answer.user == current_user && @answer.destroy
     redirect_to @question, notice: "Answer Deleted"
   else
-    redirect_to @question, error: "We had trouble deleting the answer"
+    redirect_to @question, alert: "We had trouble deleting the answer"
   end 
 end
 
