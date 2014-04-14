@@ -2,6 +2,11 @@ Weblog::Application.routes.draw do
 
 
   devise_for :users
+
+#delayed_job
+match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+
+
  get "/jspractices" => "jspractice#index"
 
   get "/about_us" => "home#about"
@@ -24,6 +29,7 @@ Weblog::Application.routes.draw do
 ###RESOURCES BELOW DOES ALL OF THE ABOVE!!!
 
   resources :questions  do#, except: #OR# only: [:index, :new, :create]
+    resources :favourites, only: [:create, :destroy]
     resources :votes, only: [:create, :update, :destroy]
     resources :answers  
     #IMPORTANT: resources :answers is NESTED INSIDE resources:questions, 

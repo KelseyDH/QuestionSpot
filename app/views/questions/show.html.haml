@@ -6,6 +6,18 @@
 / WHICH REPLACED THIS ^^ LINE
 
 %p
+- if @favourite
+  = button_to "Unfavourite", question_favourite_path(@question, @favourite), method: :delete, class: "btn btn-danger"
+- else
+  %p= button_to "Favourite", question_favourites_path(@question), method: :post, class: "btn btn-info"
+
+- if @question.favourited_users.present?
+  Favourited Users:
+  = @question.favourited_users.map(&:full_name).join(" , ")
+
+%br
+%hr
+
 
 ///Shows Categories of Question:
 - if @question.categories.any?
@@ -16,17 +28,17 @@
 /////New vote count system
 %p
 
-  - if @vote.persisted? && @vote.is_up?
-    = button_to "Undo", [@question, @vote], method: :delete, class: "btn btn-primary"
+  / - if @vote.persisted? && @vote.is_up?
+  /   = button_to "Undo", [@question, @vote], method: :delete, class: "btn btn-primary"
 
-  - else
-    = form_for [@question, @vote] do |f|
-      = f.hidden_field :is_up, value: true
-      = f.submit "Vote Up", class: "btn btn-primary"
-  %br
-  = form_for [@question, @vote] do |f|
-    = f.hidden_field :is_up, value: false
-    = f.submit "Vote Down", class: "btn btn-primary"
+  / - else
+  /   = form_for [@question, @vote] do |f|
+  /     = f.hidden_field :is_up, value: true
+  /     = f.submit "Vote Up", class: "btn btn-primary"
+  / %br
+  / = form_for [@question, @vote] do |f|
+  /   = f.hidden_field :is_up, value: false
+  /   = f.submit "Vote Down", class: "btn btn-primary"
 
 
 ////////////////////Old vote count system

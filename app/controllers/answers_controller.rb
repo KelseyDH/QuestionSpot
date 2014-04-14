@@ -13,6 +13,8 @@ def create
   #answer_attributes is a private method taking care of NEW parameters
   
   if @answer.save
+    # AnswerMailer.notify_question_owner(@answer).deliver
+    AnswerMailer.delay.notify_question_owner(@answer) #Note: Uses a Delay gem
     redirect_to @question, notice: "Answer Submitted Successfully"
   else
     render "/questions/show"

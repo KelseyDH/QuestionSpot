@@ -11,6 +11,12 @@ gem 'html2haml'
 
 gem 'devise'
 
+#if you're using MongoDB you need a different gem
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+
+gem 'faker', group: [:development, :test]
+
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
@@ -23,6 +29,7 @@ group :development do
   gem "awesome_print"
   # gem 'better_errors' #debugging gem
   # gem 'binding_of_caller' #debugging gem
+  # gem "letter-opener"
 
 end
 

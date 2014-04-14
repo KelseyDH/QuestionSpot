@@ -18,6 +18,9 @@ class Question < ActiveRecord::Base
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
 
+  has_many :favourites, dependent: :destroy
+  has_many :favourited_users, through: :favourites, source: :user
+
   has_one :question_detail
   # Methods for manipulating question_detail DB:
   # ~> question.build_question_detail(notes: "hello")

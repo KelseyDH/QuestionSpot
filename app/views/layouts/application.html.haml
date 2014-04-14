@@ -20,7 +20,6 @@
 
     - if flash[:notice] 
       .alert.alert-success= flash[:notice]
-    - else flash[:error]
+    - elsif flash[:error]
       .alert.alert-danger= flash[:error]
-    %h3= flash[:notice] || flash[:error]
   = yield

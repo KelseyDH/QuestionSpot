@@ -31,7 +31,8 @@ class QuestionsController < ApplicationController
     @answers = @question.answers.ordered_by_creation
     #Note that @answers is being used by show.html.haml to render data, which is then used to identify
     #partial page _answer.html.haml
-    @vote = current_user.vote_for(@question) || Vote.new
+    #NEEDS FIXING: @vote = current_user.vote_for(@question) || Vote.new
+    @favourite = current_user.favourite_for(@question)
   end
 
 
