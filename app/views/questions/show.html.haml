@@ -67,11 +67,21 @@
       %li= message
 
 /=# form_for [@question, @answer] do |f|
-= form_for @answer, url: question_answers_path(@question) do |f|
+/=#INSERT AJAX HERE
+
+= form_for [@question, @answer], remote: true do |f|
   = f.text_area :body
-  %br
-  = f.submit "Submit an answer", class: "btn btn-primary"
-%hr
+  
+  /# Note "data: {disable_with: "saving"} is used user interface when waiting for a server to save
+  = f.submit "Submit an answer", class: "btn btn-primary", data: {disable_with: "Saving..."}
+
+
+/ OLD Form before AJAX was used:
+/ =# form_for @answer, url: question_answers_path(@question) do |f|
+/   =# f.text_area :body
+/   %br
+/   =# f.submit "Submit an answer", class: "btn btn-primary"
+/ %hr
 
 /-# @question.answers.each do |answer|
 /#   .well
@@ -83,7 +93,11 @@
 /#       .pull-right= button_to "Delete", question_answers_path(@question,@answer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure you want to delete the answer?"}
 / %hr
 
-= render @answers
+
+.answers= render @answers
+/Above allows each render to be contained within the div class ".answers"
+/# = render @answers
+
 /-# ^^If rendering PARTIAL, above is even MORE Succinct than:
 /-# @answers.each do |answer|
 /-#  = render "/answers/answer", answer: answer

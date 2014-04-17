@@ -1,0 +1,11 @@
+
+
+/ $(".answers").prepend("#{j render 'answer', answer: @answer}")
+
+
+//Makes AJAX add of answer fade out upon delete
+//Remember:  AJAX will not work if JS is nested in HAML.
+
+$("##{dom_id(@answer)}").fadeOut(600, function(){$(this).remove();});
+
+

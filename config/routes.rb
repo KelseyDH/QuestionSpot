@@ -8,6 +8,7 @@ match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 
 
  get "/jspractices" => "jspractice#index"
+ get "/exercise1" => "jspractice#exercise1"
 
   get "/about_us" => "home#about"
 

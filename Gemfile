@@ -11,6 +11,10 @@ gem 'html2haml'
 
 gem 'devise'
 
+gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
+
 #if you're using MongoDB you need a different gem
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'

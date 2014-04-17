@@ -12,12 +12,18 @@ def create
   # @answer = Answer.new(answer_attributes)
   #answer_attributes is a private method taking care of NEW parameters
   
-  if @answer.save
-    # AnswerMailer.notify_question_owner(@answer).deliver
-    AnswerMailer.delay.notify_question_owner(@answer) #Note: Uses a Delay gem
-    redirect_to @question, notice: "Answer Submitted Successfully"
-  else
-    render "/questions/show"
+  respond_to do |format| ##Used for AJAX
+    if @answer.save
+      # AnswerMailer.notify_question_owner(@answer).deliver
+      AnswerMailer.delay.notify_question_owner(@answer) #Note: Uses a Delay gem
+      #format.html {redirect_to @question, notice: "Answer Submitted Successfully"} 
+      format.html {} #AJAX
+      format.js {render} #<-- AJAX
+
+    else
+      format.html { render "/questions/show" } #Ajax added
+      format.js {render js: "alert('ERROR');"} ##AJAX added
+    end
   end
 end
 
@@ -25,12 +31,19 @@ end
 def destroy
   #find_question replaced need for:  @question = Question.find(params[:question_id])
   @answer = @question.answers.find(params[:id])
+  
+  respond_to do |format| #Needed for Ajax
 
-  ##Checks eligibility of current user
-  if @answer.user == current_user && @answer.destroy
-    redirect_to @question, notice: "Answer Deleted"
-  else
-    redirect_to @question, alert: "We had trouble deleting the answer"
+    ##Checks eligibility of current user
+    if @answer.user == current_user && @answer.destroy
+      #Before AJAX:  redirect_to @question, notice: "Answer deleted"
+      format.html {}
+      format.js{render}
+    else
+      #Before AJAX: redirect_to @question, alert: "We had trouble deleting the answer"
+      format.html {}
+      format.js {render}
+    end
   end 
 end
 

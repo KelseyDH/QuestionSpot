@@ -11,6 +11,7 @@
  *### NOTE ABOUT REQUIRE:  you can "require_directory ./abc" THEN require special CSS after
  *### OR:  YOU CAN USE e.g. "stub home" to exclude a css page from a require_tree;
  *= require_self
+ *= jquery.ui.all
  *= require_tree 
  */
 

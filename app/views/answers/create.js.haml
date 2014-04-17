@@ -1,0 +1,15 @@
+$("#answer_body").html("#{j rendewr 'form'}");
+$("#answer_body").val("");
+
+//Appends typed in answers to the top of @answer
+//$(".answers").prepend("#{@answer.body}")
+
+//Renders the _answer partial
+$(".answers").prepend("#{j render 'answer', answer: @answer}")
+
+
+//Makes AJAX add of answer fade in
+$("##{dom_id(@answer)}").hide().fadeIn(500)
+
+//Error message
+$(".answeradd").prepend("#{@answer.body}")
