@@ -15,12 +15,16 @@ gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
 
+gem 'factory_girl_rails'
+
 #if you're using MongoDB you need a different gem
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
-gem 'faker', group: [:development, :test]
-
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'faker'
+end
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 

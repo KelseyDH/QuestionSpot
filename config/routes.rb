@@ -29,10 +29,15 @@ match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 ######  ^^^^^^^^^^^^^^^^^^^^
 ###RESOURCES BELOW DOES ALL OF THE ABOVE!!!
 
+    resources :answers, only: [] do
+      resources :comments, only: [:create, :destroy]
+    end
+
   resources :questions  do#, except: #OR# only: [:index, :new, :create]
     resources :favourites, only: [:create, :destroy]
     resources :votes, only: [:create, :update, :destroy]
-    resources :answers  
+    
+    resources :answers
     #IMPORTANT: resources :answers is NESTED INSIDE resources:questions, 
     #nesting changes :answers path route
     #TO NEW ROUTE OF: "/questions/:questionid/answers" => "answers#create"

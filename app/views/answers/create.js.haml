@@ -7,6 +7,8 @@ $("#answer_body").val("");
 //Renders the _answer partial
 $(".answers").prepend("#{j render 'answer', answer: @answer}")
 
+#("##{dom_id(@answer)}").hide().fadeIn(1000)");
+
 
 //Makes AJAX add of answer fade in
 $("##{dom_id(@answer)}").hide().fadeIn(500)

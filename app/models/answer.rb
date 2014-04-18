@@ -13,4 +13,10 @@ scope :ordered_by_creation, -> {order("created_at DESC")}
 ##Creates method :ordered_by_creation
 #this method orders answers by the date created_at; DESC means Descending order
 
+before_save :capitalize
+
+def capitalize
+  self.body = self.body.capitalize!
+end
+
 end
