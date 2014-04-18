@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+ before_action :find_answer
  before_action :authenticate_user!
 
   def create
@@ -15,10 +15,19 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    render nothing: true
+    @comment.destroy!
+
+    redirect_to @answer.question, notice: "Comment deleted successfully!"
+    
+    #Above is refactor of below, using find_answer private method
+      #redirect_to @comment.answer.questions
   end
 
+  private
+
+  def find_answer
+    @answer = Answer.find(params[:answer_id])
+  end
 
   ### Earlier Create(s) used for testing:
   # def create

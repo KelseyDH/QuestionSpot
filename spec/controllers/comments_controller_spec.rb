@@ -102,7 +102,20 @@ describe CommentsController do
         expect { delete_request }.to change{Comment.count}.by(-1)
       end
 
-      
+      it "redirect to question page after successful delete" do
+        delete_request
+
+        response.should redirect_to(question_path(question))
+        # similar methods:
+        # expect(response).to redirect_to(question_path(question.id))
+        # response.should redirect_to(question)
+        # expect(response).to redirect_to(question)
+      end
+
+      it "sets a notice flash message" do
+        delete_request
+        expect(flash[:notice]).to be
+      end 
 
     end
 
