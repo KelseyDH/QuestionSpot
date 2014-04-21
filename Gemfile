@@ -17,6 +17,8 @@ gem 'jquery-ui-rails'
 
 gem 'factory_girl_rails'
 
+gem 'thin'
+
 #if you're using MongoDB you need a different gem
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'

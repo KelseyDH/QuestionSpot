@@ -786,3 +786,7 @@ exit
 nd
 18.times { FactoryGirl.create(:comment)}
 exit
+exit
+rspec spec/controllers/questions_controller_spec.rb
+rspec spec/controllers/questions_controller_spec.rb
+exit

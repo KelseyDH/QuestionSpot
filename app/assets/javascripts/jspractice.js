@@ -3,25 +3,13 @@
 
 
 
-
- //Animate buttons to make them fadeout
-$("btn").animate({width: "1000%", height: "1000%"}, 1000, function() {$(this).fadeOut()});
-
-$(".btn").slideUp(500, function(){$(this).remove()});
-
-$(".btn.btn-primary").draggable({stop: function() {alert("drag complete")}})
-
-$(".btn.btn-primary").animate({width: "1000%", height: "1000%"}, 1000, function() {$(this).fadeOut()});
-
-//Make Buttons draggable
-$(".btn.btn-primary").draggable({start: function(){$("h1").text("Dragging")}, stop: function() {$("h1").text("Stopped")}});
-
-
-//////////////////////////
 // //$(this) references the id of the button
 // var showAlert = function(){
 //   alert($(this).attr("id"));
 // };
+
+
+
 
 
 // $(document).ready(function() {
@@ -132,4 +120,4 @@ $(document).ready(function() {
     });
 
   });
- 
+
