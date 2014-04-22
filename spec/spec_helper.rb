@@ -3,6 +3,7 @@
 require 'simplecov'
 SimpleCov.start
 
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 
 ENV["RAILS_ENV"] ||= 'test'
@@ -10,6 +11,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+#ADDED: Helps Gem Capybara test user accounts running in devise
+include Warden::Test::Helpers
+Warden.test_mode!
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,

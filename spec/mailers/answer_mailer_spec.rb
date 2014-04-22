@@ -21,8 +21,10 @@ describe AnswerMailer do
     # end
     ###############
     its(:to) { should eq([user.email]) }
-    its(:from) { should eq(["noreply@awesomeanswers.com"]) }
-    its("body.to_s") { should match(["/#{answer.body}"]) }
+    
+    #failing:
+    its(:from) { should eq(["do-not-reply@gmail.com"]) }
+    its("body.encoded.to_s") { should match(/#{answer.body}/i) }
 
     #Same as:
 

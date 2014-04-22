@@ -23,7 +23,8 @@ describe AnswersController do
 
       it "sends an email to question owner" do
         ActionMailer::Base.deliveries.clear
-        expect.(ActionMailer::Base.deliveries).to have(1).item
+        valid_request
+        expect(ActionMailer::Base.deliveries).to have(1).item
       end
     end
   end

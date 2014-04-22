@@ -17,11 +17,11 @@ def create
       # AnswerMailer.notify_question_owner(@answer).deliver
       AnswerMailer.delay.notify_question_owner(@answer) #Note: Uses a Delay gem
       #format.html {redirect_to @question, notice: "Answer Submitted Successfully"} 
-      format.html {} #AJAX
+      format.html {redirect_to @question} #<-- if js not loaded 
       format.js {render} #<-- AJAX
 
     else
-      format.html { render "/questions/show" } #Ajax added
+      format.html { render "/questions/show" } #if js not loaded
       format.js {render js: "alert('ERROR');"} ##AJAX added
     end
   end

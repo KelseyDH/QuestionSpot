@@ -23,12 +23,17 @@ gem 'thin'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
+
+
+#shows percentage of text coverage
 gem 'simplecov', require: false, group: :test
+
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
   gem "factory_girl_rails"
+  gem "capybara"
 end
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
