@@ -45,7 +45,7 @@ def update
   if @question.update_attributes(question_params)
     redirect_to @question, notice: "updated succesfully!"
   else
-    render :edit
+    redirect_to @question, error: "not allowed to update sorry"
   end  
 end
 

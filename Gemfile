@@ -23,9 +23,12 @@ gem 'thin'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
+gem 'simplecov', require: false, group: :test
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
+  gem "factory_girl_rails"
 end
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -37,9 +40,9 @@ group :development do
   gem "hirb"
   gem "interactive_editor"
   gem "awesome_print"
-  # gem 'better_errors' #debugging gem
-  # gem 'binding_of_caller' #debugging gem
-  # gem "letter-opener"
+  gem 'better_errors' #debugging gem
+  gem 'binding_of_caller' #debugging gem
+  gem "letter_opener"
 
 end
 
