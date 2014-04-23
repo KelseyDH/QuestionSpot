@@ -1,17 +1,17 @@
-$("#answer_body").html("#{j rendewr 'form'}");
-$("#answer_body").val("");
+/ $("#answer_body").html("#{j rendewr 'form'}");
+/ $("#answer_body").val("");
 
 //Appends typed in answers to the top of @answer
 //$(".answers").prepend("#{@answer.body}")
 
-//Renders the _answer partial
+//Renders the _answer partial via AJax
 $(".answers").prepend("#{j render 'answer', answer: @answer}")
 
-#("##{dom_id(@answer)}").hide().fadeIn(1000)");
+/ #("##{dom_id(@answer)}").hide().fadeIn(1000)");
 
 
 //Makes AJAX add of answer fade in
-$("##{dom_id(@answer)}").hide().fadeIn(500)
+/ $("##{dom_id(@answer)}").hide().fadeIn(500)
 
 //Error message
 $(".answeradd").prepend("#{@answer.body}")

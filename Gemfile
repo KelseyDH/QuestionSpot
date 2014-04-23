@@ -34,6 +34,9 @@ group :development, :test do
   gem 'faker'
   gem "factory_girl_rails"
   gem "capybara"
+  # gem "capybara-webkit"
+  gem 'selenium-webdriver', '~> 2.41.0'
+  gem "database_cleaner"
 end
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'

@@ -790,3 +790,6 @@ exit
 rspec spec/controllers/questions_controller_spec.rb
 rspec spec/controllers/questions_controller_spec.rb
 exit
+exit
+Delayed::Job.all
+exit
