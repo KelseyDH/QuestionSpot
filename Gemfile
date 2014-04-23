@@ -28,6 +28,10 @@ gem 'delayed_job_web'
 #shows percentage of text coverage
 gem 'simplecov', require: false, group: :test
 
+gem 'simple_form', git: "https://github.com/plataformatec/simple_form"
+
+gem "paperclip", "~> 4.1"
+gem "aws-sdk", '~> 1.5.7' #sets up paperclip in AWS
 
 group :development, :test do
   gem 'rspec-rails'

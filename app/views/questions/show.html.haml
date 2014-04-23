@@ -5,6 +5,12 @@
 / %p= @question.created_at.strftime("%Y-%b-%d")
 / WHICH REPLACED THIS ^^ LINE
 
+/Added for use with paperclip/upload gem
+- if @question.image.present?
+  /when imagemagick works we can reize:
+  /#= image_tag @question.image.url(:medium)
+  = image_tag @question.image.url
+
 %p
 - if @favourite
   = button_to "Unfavourite", question_favourite_path(@question, @favourite), method: :delete, class: "btn btn-danger"

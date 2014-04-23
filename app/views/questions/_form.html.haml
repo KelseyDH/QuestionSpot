@@ -1,31 +1,62 @@
 - if @question.errors.any?
   %ul
-    - @questions.errors.full_messages.each do |message|
-      %li= message
-= form_for @question do |f|
-  = f.label :title, "question title"
-  = f.text_field :title
-  %br/
-  = f.label :description, "question description"
-  = f.text_area :description
-  %br/
-  =# f.collection_check_boxes :category_ids, Category.order("name"), :id, :name
+    - @question.errors.full_messages.each do |message|
+      %li message
 
-  = hidden_field_tag "question[category_ids][]", nil
-  - Category.order("name").each do |cat|
-    = check_box_tag "question[category_ids][]", cat.id, @question.category_ids.include?(cat.id), id: dom_id(cat)
-    = label_tag dom_id(cat), cat.name
-    / # NOTE:  putting [category_ids][] with another "[]" enables data to be sent back as an array of multiple items
-    / # NOTE 2:  dom_id(cat) is a helper method for retrieving model_id, e.g. user_13
-    %br/
-  = f.submit button_label, class: "btn btn-default"
 
-/# %ul.listing
-/#   - 10.times do |x|
-/#    %li= link_to "Create New Question", new_question_path
-/#    %h2= "x"
+= simple_form_for @question, html: {class: "form-horizontal"}  do |f|
+  = f.input :title, label: "question title"
+  = f.input :description, label: "questions description"
+  = f.collection_check_boxes :category_ids, Category.order("name"), :id, :name, item_wrapper_class: "form-group"
+  /= f.collection_check_boxes :category_ids, Category.order("title"), :id, :title
+  = f.input :image
+  = f.submit class: "btn btn-default"
 
-/ 
-/ = f.submit "Save", class: "btn btn-primary"
+
+//////Replaced with an even simpler form above!
+/ - if @question.errors.any?
+/   %ul
+/     - @question.errors.full_messages.each do |message|
+/       %li message
+
+/ = simple_form_for @question, html: {class: "form-horizontal"}  do |f|
+/   = f.input :title, label: "question title", input_html: {class: "form-control"}
+/   = f.input :description, label: "questions description", input_html: {class: "form-control"}
+/   = f.collection_check_boxes :category_ids, Category.order("title"), :id, :title
+/   %br
+/   = f.submit class: "btn btn-default"
+
+
+/////Simple form replaces all the following:
+
+/ #- if @question.errors.any?
+/   %ul
+/     - @questions.errors.full_messages.each do |message|
+/       %li= message
+/ #= form_for @question do |f|
+/   #= f.label :title, "question title"
+/   #= f.text_field :title
+/   %br/
+/   #= f.label :description, "question description"
+/   #= f.text_area :description
+/   %br/
+/   =# f.collection_check_boxes :category_ids, Category.order("name"), :id, :name
+
+/   #= hidden_field_tag "question[category_ids][]", nil
+/   - Category.order("name").each do |cat|
+/     = check_box_tag "question[category_ids][]", cat.id, @question.category_ids.include?(cat.id), id: dom_id(cat)
+/     #= label_tag dom_id(cat), cat.name
+/     / # NOTE:  putting [category_ids][] with another "[]" enables data to be sent back as an array of multiple items
+/     / # NOTE 2:  dom_id(cat) is a helper method for retrieving model_id, e.g. user_13
+/     %br/
+/   #= f.submit button_label, class: "btn btn-default"
+
+/ /# %ul.listing
+/ /#   - 10.times do |x|
+/ /#    %li= link_to "Create New Question", new_question_path
+/ /#    %h2= "x"
+
+/ / 
+/ / #= f.submit "Save", class: "btn btn-primary"
   
-/ # SAME AS ABOVE f.submit (@question.persisted? ? "Update" : "Save"), class: "btn btn-primary"
+/ / # SAME AS ABOVE f.submit (@question.persisted? ? "Update" : "Save"), class: "btn btn-primary"

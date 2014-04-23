@@ -67,7 +67,7 @@ def find_question
 end
 
 def question_params
-  params.require(:question).permit(:title, :description)
+  params.require(:question).permit(:title, :description, :image)
 end
 
 ####NOTE:  Code below commented out to test RSpec

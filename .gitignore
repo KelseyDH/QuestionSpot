@@ -7,6 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
+# Added for paperclip images, prevents pushing the images you upload to paperclip to Git!
+/public/system
+
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -16,4 +20,5 @@
 /tmp
 
 # Ignore Email Variables for security reasons
-config/initializers/email_vars.rb
+/config/initializers/email_vars.rb
+/config/initializers/s3_vars.rb  #hides AWS access keys
