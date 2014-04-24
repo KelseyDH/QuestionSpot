@@ -30,8 +30,14 @@ gem 'simplecov', require: false, group: :test
 
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form"
 
+#good for 1 or 2 file uploads
 gem "paperclip", "~> 4.1"
 gem "aws-sdk", '~> 1.5.7' #sets up paperclip in AWS
+
+#more robust and popular gem for many uploads
+# gem "carrierwave"
+#gem "rmagick", require: "RMagick" #helps resizing 
+# gem "fog"
 
 group :development, :test do
   gem 'rspec-rails'

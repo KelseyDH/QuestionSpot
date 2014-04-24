@@ -1,0 +1,7 @@
+%h1 Welcome to ToDo App
+
+= form_tag todos_path, id: "new-task" do
+  = text_field_Tag :title
+  = submit_tag "Add Task"
+
+%ul.tasks

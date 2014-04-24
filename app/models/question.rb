@@ -7,6 +7,8 @@ class Question < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 
+  #mount_uploader :image, ImageUploader
+
   validates :title, presence: true, uniqueness: true
 
   validates_presence_of :description, message: "must be present"
