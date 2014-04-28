@@ -11,11 +11,13 @@ gem 'html2haml'
 
 gem 'devise'
 
+# Use jquery as the JavaScript library
+# Note order placement of jquery must follow this:
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
 
-gem 'factory_girl_rails'
+# gem 'factory_girl_rails'
 
 gem 'thin'
 
@@ -23,7 +25,12 @@ gem 'thin'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
+#controls administrator rights
+gem 'activeadmin', github: 'gregbell/active_admin'
+#gem 'paginate'
+gem 'kaminari'
 
+gem 'cancan'
 
 #shows percentage of text coverage
 gem 'simplecov', require: false, group: :test
@@ -77,9 +84,6 @@ gem 'uglifier', '>= 1.3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

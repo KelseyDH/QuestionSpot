@@ -59,9 +59,12 @@
 / %br/
 ///////////////////////
 
-= link_to "Edit", edit_question_path(@question)
+//CanCan User auth: "can?"
+- if can? :edit, @question
+  = link_to "Edit", edit_question_path(@question)
 %br/
-= button_to "Delete", @question, method: :delete, data: {confirm: "Are you sure you want to delete this question?"}
+- if can? :destroy, @question
+  = button_to "Delete", @question, method: :delete, data: {confirm: "Are you sure you want to delete this question?"}
 %br/
 = link_to "All Questions", questions_path
 

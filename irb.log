@@ -793,3 +793,15 @@ exit
 exit
 Delayed::Job.all
 exit
+User.all
+k = User.first
+k(is_admin: true)
+k.add(is_admin: true)
+User.first(is_admin: true)
+User.first[is_admin: true]
+k
+k(is_admin: true)
+k.is_admin?
+k.is_admin = true
+k.is_admin?
+exit
