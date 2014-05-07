@@ -38,6 +38,8 @@ def show
 end
 
 def edit
+  #CanCan/ActiveAdmin used here: 
+  redirect_to root_path, alert: "Access Denied" unless can? :edit, @question
 
 end
 

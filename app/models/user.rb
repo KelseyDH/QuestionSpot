@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
 
@@ -21,6 +21,29 @@ has_many :favourited_questions, through: :favourites, source: :questions
 # has_many :liked_questions, through: :likes, source: :questions
 
 has_many :answers
+
+  # def email_required?
+  #   false
+  # end
+
+  def email_required?
+    provider.nil?
+  end
+
+  def self.find_or_create_from_twitter(oauth_data)
+    user = User.where(provider: :twitter, uid: oauth_data["uid"]).first
+
+    unless user
+      name = oauth_data["info"]["name"].split(" ")
+      user = User.create!(first_name: name[0],
+                          last_name: name[1],
+                          password: Devise.friendly_token[0, 20],
+                          provider: :twitter,
+                          uid: oauth_data["uid"])
+    end
+    user
+  end
+
   # vote_for acts in questions controller
   def vote_for(question)
     Vote.where(question: question, user: self).first

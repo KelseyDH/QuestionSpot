@@ -10,6 +10,8 @@ gem 'haml'
 gem 'html2haml'
 
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 # Use jquery as the JavaScript library
 # Note order placement of jquery must follow this:
@@ -32,7 +34,7 @@ gem 'kaminari'
 
 gem 'cancan'
 
-#shows percentage of text coverage
+#shows percentage of test coverage
 gem 'simplecov', require: false, group: :test
 
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form"
@@ -43,8 +45,8 @@ gem "aws-sdk", '~> 1.5.7' #sets up paperclip in AWS
 
 #more robust and popular gem for many uploads
 # gem "carrierwave"
-#gem "rmagick", require: "RMagick" #helps resizing 
-# gem "fog"
+gem "rmagick", require: "RMagick" #helps resizing 
+# gem "fog"  #gem for cloud hosting configuration
 
 group :development, :test do
   gem 'rspec-rails'
@@ -54,6 +56,7 @@ group :development, :test do
   # gem "capybara-webkit"
   gem 'selenium-webdriver', '~> 2.41.0'
   gem "database_cleaner"
+  gem "rails-erd" #use rake erd to create a .dot file you can view current ERD with graphviz
 end
 # # DEPRECRATED Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -65,8 +68,8 @@ group :development do
   gem "hirb"
   gem "interactive_editor"
   gem "awesome_print"
-  gem 'better_errors' #debugging gem
-  gem 'binding_of_caller' #debugging gem
+  # gem 'better_errors' #debugging gem
+  # gem 'binding_of_caller' #debugging gem
   gem "letter_opener"
 
 end
