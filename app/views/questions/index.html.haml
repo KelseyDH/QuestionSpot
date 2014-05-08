@@ -1,15 +1,35 @@
-%h1.title Listing All Questions
+%h1.title Listing Questions
 = link_to "Create New Question", new_question_path
+
+%h2 Recent Questions (cached)
+
+//Cache of questions:
+- cache "recent_questions", skip_digest: true do
+  - @recent_questions.each do |question|
+    = cache ["recent", question] do
+      %div{id: "recent_#{dom_id(question)}"}
+        %h2= link_to question.title, question
+        %p.description= question.description
+        %p
+          Create On: #{formatted_date(question.created_at)}
+        %hr
+
+
+%h2 All Questions
 - @questions.each do |question|
-  %div{id: dom_id(question)}
-    %h2= link_to question.title, question_path(question)
-    %p.description= question.description
-    %p
-      Created On: #{formatted_date(question.created_at)}
-  /Note that *Formatted_date* REPLACED:
-  / = question.created_at.strftime("%Y-%b-%d")
-  
-  %hr/
+  = cache question do
+
+    %div{id: dom_id(question)}
+      %h2= link_to question.title, question_path(question)
+      %p.description= question.description
+      %p
+        Created On: #{formatted_date(question.created_at)}
+    /Note that *Formatted_date* REPLACED:
+    / = question.created_at.strftime("%Y-%b-%d")
+    
+%hr/
+
+
 
 /# Below code is jquery to increase %h1 font-size by 1px
 /# parseInt() converts "20 px" into integer "20"

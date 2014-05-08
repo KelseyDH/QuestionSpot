@@ -60,7 +60,7 @@ class Question < ActiveRecord::Base
 
 ###########SAME THING BELOW:  scope and self.recent(x)
 
-  scope :recent, lambda {|x| order("created_at DESC").limit(x) }
+scope :recent, lambda {|x| order("created_at DESC").limit(x) }
 
 
 

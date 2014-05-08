@@ -1,64 +1,3 @@
-exit
-exit
-User.all
-c = User.find 1
-c
-c.name
-c.Name
-c.email
-c.name
-c.name("kelsey")
-c.name << kelsey
-c.name >> kelsey
-exit
-Rails.root
-exit
-["Ruby on Rails", "Javascript", "HTML/CSS", "Node.js", "Scala", "Java"].each {|x| Skill.create(title: x)}
-["Ruby on Rails", "Javascript", "HTML/CSS", "Node.js", "Scala", "Java"].each {|x| Skill.create(title: x)}
-Skill.all
-bundle exec rake db:migrate
-exit
-["HTML/CSS", "Node.js", "Scala", "Javascript", "Java"].each {|x| Skill.create(title: x)}
-exit
-Skill.new(title: "rails")
-q = Skill.new(title: "rails")
-q.save
-Skills.all
-Skill.all
-q2 = Skill.new(title: "javascript")
-q2.save
-Skill.all
-j = Job_skill.new(skill_id: 1, job_id: 1)
-j = Job_skill.new(skill_id: "1", job_id: "1")
-j = Job_skill.new
-j = JobSkill.new
-j = JobSkill.new(skill_id: "1", job_id: "1")
-j.save
-j2 = JobSkill.new(skill_id: "2", job_id: "2")
-j2.save
-JobSkill.all
-j.add(skill_id: "3")
-j.skill_id("3")
-j4 = JobSkill.new(skill_id: ["1", "2"], job_id: "3")
-j4 = JobSkill.new(skill_id: "1", job_id: "3")
-j4.save
-j5 = JobSkill.new(skill_id: "2", job_id: "3")
-j5.save
-JobSkill.all
-j6 = JobSkill.new(skill_id: "1", job_id: "2")
-j6.save
-j7 = JobSkill.new(skill_id: "2", job_id: "4")
-j7.save
-JobSkill.all
-t1 = TalentSkill.new(skill_id: "1", talent_id: "1")
-t1.save
-t2 = TalentSkill.new(skill_id: "2", talent_id: "1")
-t2.save
-t3 = TalentSkill.new(skill_id: "2", talent_id: "2")
-t3.save
-t3 = TalentSkill.new(skill_id: "2", talent_id: "3")
-t3.save
-TalentSkill.all
 t5 = TalentSkill.new(skill_id: "1", talent_id: "4")
 t5.save
 TalentSkill.all
@@ -999,4 +938,88 @@ end
 client.friends
 exit
 require 'twitter'
+exit
+require 'twitter'
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "4SJaarSLvlfNIOy4ggnNpJuNC"
+  config.consumer_secret     = "ROhoVumb7uAQYW6i2fGyshdr965rYU5Rin0CXpIwFL9eTa2hDG"
+  config.access_token        = "17690790-ZgKhCrOfMKzxx2SPrf9C3AXETywBNrB1hfMq4ouga"
+  config.access_token_secret = "X6WtgszbSxAHH3W68qOIFCbW5zRIGWn9TGUgOcY81RKJv"
+end
+client.sample do |object|
+  puts object.text if object.is_a?(Twitter::Tweet)
+end
+client.friends.first
+client.friends.to_a
+client.friends.take(20)
+client.friends.take(20)
+end
+client.friends.first
+tweet_count
+client.update("Today I'm programming with Twitter's APi.. if you see this tweet, then I successfully set it up. #rails :)"
+emd
+end
+client.friends.first
+client.search("to:justinbieber marry me", :result_type => "recent").take(3).collect do |tweet|
+  "#{tweet.user.screen_name}: #{tweet.text}"
+end
+client.search("to:justinbieber marry me", :result_type => "recent").take(3).collect do |tweet|
+  "#{tweet.user.screen_name}: #{tweet.text}"
+end
+client.update("Programming with Twitter's APi today.. if you see this tweet, then my code worked! #rails)
+end
+end
+exit
+exit
+exit
+require 'twitter'
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "4SJaarSLvlfNIOy4ggnNpJuNC"
+  config.consumer_secret     = "ROhoVumb7uAQYW6i2fGyshdr965rYU5Rin0CXpIwFL9eTa2hDG"
+  config.access_token        = "17690790-ZgKhCrOfMKzxx2SPrf9C3AXETywBNrB1hfMq4ouga"
+  config.access_token_secret = "X6WtgszbSxAHH3W68qOIFCbW5zRIGWn9TGUgOcY81RKJv"
+end
+client.user_timeline("ruby")
+client.update("Programming w/ Twitter's API today, if you see this tweet then my code worked :) #rails")
+client.search("to:justinbieber marry me", :result_type => "recent").take(3).collect do |tweet|
+  "#{tweet.user.screen_name}: #{tweet.text}"
+end
+client.search("to:justinbieber marry me", :result_type => "recent").take(3).collect do |tweet|
+  "#{tweet.user.screen_name}: #{tweet.text}"
+end
+client.search("to:justinbieber marry me", :result_type => "recent").take(15).collect do |tweet|
+  "#{tweet.user.screen_name}: #{tweet.text}"
+end
+client = Twitter::Streaming::Client.new do |config|
+  config.consumer_key        = "4SJaarSLvlfNIOy4ggnNpJuNC"
+  config.consumer_secret     = "ROhoVumb7uAQYW6i2fGyshdr965rYU5Rin0CXpIwFL9eTa2hDG"
+  config.access_token        = "17690790-ZgKhCrOfMKzxx2SPrf9C3AXETywBNrB1hfMq4ouga"
+  config.access_token_secret = "X6WtgszbSxAHH3W68qOIFCbW5zRIGWn9TGUgOcY81RKJv"
+end
+end
+exit
+require 'twitter'
+client = Twitter::Streaming::Client.new do |config|
+  config.consumer_key        = "4SJaarSLvlfNIOy4ggnNpJuNC"
+  config.consumer_secret     = "ROhoVumb7uAQYW6i2fGyshdr965rYU5Rin0CXpIwFL9eTa2hDG"
+  config.access_token        = "17690790-ZgKhCrOfMKzxx2SPrf9C3AXETywBNrB1hfMq4ouga"
+  config.access_token_secret = "X6WtgszbSxAHH3W68qOIFCbW5zRIGWn9TGUgOcY81RKJv"
+end
+topics = ["weather", "storm"]
+client.filter(:track => topics.join(",")) do |object|
+  puts object.text if object.is_a?(Twitter::Tweet)
+end
+topics = ["bieber", "justin"]
+client.filter(:track => topics.join(",")) do |object|
+  puts object.text if object.is_a?(Twitter::Tweet)
+end
+topics = ["cryptocurrency", "bitcoin"]
+client.filter(:track => topics.join(",")) do |object|
+  puts object.text if object.is_a?(Twitter::Tweet)
+end
+topics = ["#NasiGudegPosPolisiMeruya", "#EstoyLocoPor"]
+client.filter(:track => topics.join(",")) do |object|
+  puts object.text if object.is_a?(Twitter::Tweet)
+end
+y
 exit

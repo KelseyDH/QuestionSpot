@@ -6,6 +6,7 @@ before_action :find_question, only: [:edit, :update, :destroy]
 
 
 def index
+  @recent_questions = Question.recent(3)
   @questions = Question.limit(10)
 end
 
@@ -45,6 +46,7 @@ end
 
 def update
   if @question.update_attributes(question_params)
+    expire_fragment "recent_questions"
     redirect_to @question, notice: "updated succesfully!"
   else
     flash[:error]
