@@ -24,6 +24,11 @@ irb.log
 
 # Ignore Email Variables for security reasons
 /config/initializers/email_vars.rb
-/config/initializers/s3_vars.rb  #hides AWS access keys
+
+#hides AWS access keys
+/config/initializers/s3_vars.rb
 /config/initializers/api_keys_for_twitter.rb
 /TWITTERGEMPLAY.rb
+
+#setup database.yml.example instead:
+/config/database.yml
